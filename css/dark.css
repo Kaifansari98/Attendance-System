@@ -1,0 +1,15 @@
+:root{
+    --main-color: #003147;
+    --primary-color:#03a9f4;
+    --background: #111;
+    --background-primary: #2c2c2c;
+    --text: #fff;
+    --text-primary: #bebebe;
+    --present: #068022;
+    --absent: #80061e;
+    --leave: #c8c816;
+    --bl-outline:rgba(0, 0, 0, 0.2);
+    --lg-outline:rgba(255, 255, 255, 0.2);
+  }
+
+    /* --primary-color:#9a9de8; */

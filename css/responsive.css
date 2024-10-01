@@ -1,0 +1,106 @@
+@media (max-width: 992px){
+    /* .navigation{
+        width: 60px;
+    }
+    .navigation.active{
+        left: 0;
+        width: 280px;
+    }
+    .main{
+        width: 100%;
+        left: 60px;
+    }
+    .main.active{
+        width: calc(100% - 280px);
+        left: 280px;
+    } */
+    .cardBox{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .class_details{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .teacher_details{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .student_details{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .attendance_nav{
+        grid-template-columns: 2fr 2fr;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .fee_details{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardHeader h2{
+        font-weight: 600;
+        font-size: 18px;
+    }
+  
+}
+@media (max-width: 534px)
+{
+    .navigation{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active{
+        width: 100%;
+        left: 0;
+    }
+    .toggle.active{
+        position: fixed;
+        z-index: 10000;
+        right: 0;
+        top: 0;
+    }
+    .toggle.active::before {
+        content: "\f00d";;
+        font-family: fontAwesome;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 60px;
+        font-size: 24px;
+        text-align: center;
+        color: var(--text);
+      }
+    .main,
+    .main.active{
+        width: 100%;
+        left: 0;
+    }
+    .cardBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .fee_details .recent_fees{
+       overflow-x: auto;
+    }
+    .fee_details .recent_fees table{
+        width: 600px;
+    }
+    .class_details .classes{
+        overflow-x: auto;
+    }
+    .class_details .classes table{
+         width: 600px;
+    }
+    .teacher_details .teachers{
+        overflow-x: auto;
+    }
+    .teacher_details .teachers table{
+         width: 600px;
+    }
+    .student_details .students{
+        overflow-x: auto;
+    }
+     .student_details .students table{
+         width: 600px;
+    }
+   
+}

@@ -1,0 +1,1088 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root{
+  --main-color: #003147;
+  --primary-color:#03a9f4;
+  --present: #068022;
+  --absent: #80061e;
+  --leave: #c8c816;
+  --bl-outline:rgba(0, 0, 0, 0.2);
+  --lg-outline:rgba(255, 255, 255, 0.2);
+}
+body.dark-theme {
+    --background: #111;
+    --background-primary: #2c2c2c;
+    --text: #fff;
+    --text-primary: #bebebe;
+}
+body.light-theme {
+  --background: #fff;
+  --background-primary: #f5f5f5;
+  --text: #333;
+  --text-primary: #555555;
+}
+body {
+  overflow-x: hidden;
+}
+.container {
+  position: relative;
+  width: 100%;
+}
+input,
+select{
+  background:var(--background-primary);
+  color: var(--text);
+}
+/* navigation style start */
+.navigation {
+  position: fixed;
+  width: 60px;
+  height: 100%;
+  background: var(--background);
+  transition: 0.5s;
+  overflow: hidden;
+  z-index: 100;
+}
+.navigation:hover {
+  position: fixed;
+  width: 280px;
+  height: 100%;
+  background: var(--background);
+  z-index: 10000;
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation.active {
+  position: fixed;
+  width: 280px;
+  height: 100%;
+  background: var(--background);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+}
+.navigation ul li:hover {
+  background: var(--primary-color);
+}
+
+.navigation ul li:nth-child(1) {
+  background: transparent;
+  margin-bottom: 10px;
+}
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--text);
+}
+.navigation ul li:nth-child(1):hover a{
+  color: var(--primary-color);
+}
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.navigation ul li a .icon .fa {
+  color: var(--text);
+  font-size: 24px;
+}
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+/* navigation style end */
+
+/* Top Bar Style Start */
+
+.main {
+  position: absolute;
+  left: 60px;
+  width: calc(100% - 60px);
+  min-height: 100vh;
+  background: var(--background-primary);
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 280px);
+  left: 280px;
+}
+.main .primary_menu {
+  width: 100%;
+  background: var(--background);
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.toggle::before {
+  content: "\f0c9";
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: var(--text);
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.search label {
+  position: relative;
+  width: 100%;
+}
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  background: var(--background-primary);
+  color:var(--text-primary);
+  border: 1px solid var(--bl-outline);
+}
+.search label .fa {
+  position: absolute;
+  left: 15px;
+  top: 4px;
+  color: var(--text-primary);
+  margin-right: 10px;
+}
+.user {
+  position: relative;
+  min-width: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Attendance Boxes */
+
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.cardBox .card {
+  position: relative;
+  background: var(--background);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cardBox .card .numbers {
+  position: relative;
+  font-size: 2em;
+  font-weight: 500;
+  color: var(--text);
+}
+.cardBox .card .cardName {
+  color: var(--text-primary);
+}
+.cardBox .card .iconBox {
+  font-size: 2.5em;
+  color: var(--primary-color);
+}
+
+/* Fee */
+
+.fee_details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+  color: var(--text);
+}
+.fee_details .recent_fees {
+  position: relative;
+  /* min-height: 530px; */
+  background: var(--background);
+  padding: 20px;
+}
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.card_header h2 {
+  font-weight: 700;
+}
+a.btn {
+  position: relative;
+  padding: 5px 10px;
+  text-decoration: none;
+  background: var(--main-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.btn {
+  position: relative;
+  padding: 5px 10px;
+  background: var(--main-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.fee_details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.fee_details table thead td {
+  font-weight: 600;
+}
+.fee_details .recent_fees table tr {
+  border-bottom: 1px solid var(--primary-color);
+}
+.fee_details .recent_fees table tbody tr:last-child {
+  border-bottom: none;
+}
+.fee_details .recent_fees table tbody tr:hover {
+  background: var(--primary-color);
+  color: var(--background);
+}
+.fee_details .recent_fees table tr td {
+  padding: 9px 5px;
+}
+.fee_details .recent_fees table thead tr td:last-child,
+.fee_details .recent_fees table tbody tr td:last-child {
+  text-align: right;
+}
+.fee_details .recent_fees table thead tr td:nth-child(2),
+.fee_details .recent_fees table tbody tr td:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
+.fee_details .recent_fees table thead tr td:nth-child(3),
+.fee_details .recent_fees table tbody tr td:nth-child(3) {
+  text-align: center;
+}
+.fee_details .recent_fees #progress_bar{
+  height: 15px;
+  width: 200px;
+  background-color: var(--background-primary);
+}
+.fee_details .recent_fees .status {
+  position: relative;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: var(--present);
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+.fee_details .recent_fees .status.absent{
+  background-color: var(--absent);
+}
+.fee_details .recent_fees .status.leave{
+  background-color: var(--leave)
+  ;
+}
+.fee_details .teachers {
+  position: relative;
+  background: var(--background);
+  padding: 20px;
+}
+
+/* right side */
+
+.fee_details .teachers .imgBx {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.fee_details .teachers .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fee_details .teachers table tr td h4 span {
+  font-size: 16px;
+  color: var(--text-primary);
+}
+.fee_details .teachers table tr:hover,
+.fee_details .teachers table tr:hover td h4 span {
+  background: var(--primary-color);
+  color: var(--background);
+}
+.fee_details .teachers table tr td {
+  padding: 7px 10px;
+}
+.fee_details .teachers table tr td h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2em;
+}
+
+/* --------- classes start --------- */
+
+.class_details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+}
+.class_details .classes {
+  position: relative;
+  background: var(--background);
+  padding: 20px;
+  color: var(--text);
+}
+.class_details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.class_details table thead td {
+  font-weight: 600;
+}
+.class_details .classes table tr {
+  border-bottom: 1px solid var(--primary-color);
+}
+.class_details .classes table tbody tr:last-child {
+  border-bottom: none;
+}
+.class_details .classes table tr td {
+  padding: 9px 5px;
+}
+.class_details .classes table thead tr td:last-child,
+.class_details .classes table tbody tr td:last-child {
+  text-align: center;
+}
+.class_details .classes table thead tr td:nth-child(2),
+.class_details .classes table tbody tr td:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
+.class_details .classes table thead tr td:nth-child(3),
+.class_details .classes table tbody tr td:nth-child(3) {
+  text-align: center;
+}
+.class_details .classes table tbody tr td:nth-child(5) .btn {
+  background-color: var(--main-color);
+  color:#fff;
+  transition: 0.2s ease-in;
+}
+.class_details .classes table tbody tr td:nth-child(5) .btn:hover {
+  background-color: var(--present);
+}
+.class_details .add_class {
+  position: relative;
+  background:var(--background);
+  padding: 20px;
+  color: var(--text);
+}
+.class_details .add_class form {
+  position: relative;
+  padding: 20px;
+}
+.class_details .add_class form .form_control {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+.class_details .add_class form .form_control input {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.class_details .add_class form .form_control input:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.class_details .add_class form .form_control select {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.class_details .add_class form .form_control select:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.class_details .add_class form input.btn {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 8px;
+  background: var(--main-color);
+  color: #fff;
+}
+
+/* --------- classes end --------- */
+
+/* --------- teachers start --------- */
+
+.teacher_details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+}
+.teacher_details .teachers {
+  position: relative;
+  background: var(--background);
+  padding: 20px;
+  color: var(--text);
+}
+.teacher_details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.teacher_details table thead td {
+  font-weight: 600;
+}
+.teacher_details .teachers table tr {
+  border-bottom: 1px solid var(--primary-color);
+}
+.teacher_details .teachers table tbody tr:last-child {
+  border-bottom: none;
+}
+.teacher_details .teachers table tr td {
+  padding: 9px 5px;
+}
+.teacher_details .teachers table thead tr td:last-child,
+.teacher_details .teachers table tbody tr td:last-child {
+  text-align: center; 
+}
+.teacher_details .teachers table thead tr td:nth-child(2),
+.teacher_details .teachers table tbody tr td:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
+.teacher_details .teachers table thead tr td:nth-child(3),
+.teacher_details .teachers table tbody tr td:nth-child(3) {
+  text-align: center;
+}
+.teacher_details .teachers table tbody tr td:nth-child(4) a {
+  background-color: var(--absent);
+}
+.teacher_details .add_teacher {
+  position: relative;
+  background: var(--background);
+  padding: 20px;
+  color: var(--text);
+}
+.teacher_details .add_teacher form {
+  position: relative;
+  padding: 20px;
+}
+.teacher_details .add_teacher form .form_control {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+.teacher_details .add_teacher form .form_control input {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.teacher_details .add_teacher form .form_control input:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.teacher_details .add_teacher form .form_control select {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--lg-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.teacher_details .add_teacher form .form_control select:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.teacher_details .add_teacher form input.btn {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 8px;
+  background: var(--main-color);
+  color: #fff;
+}
+.teacher_details .add_teacher form .form_group {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+}
+.teacher_details .add_teacher form .teacher_pic {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+
+
+
+/* --------- teachers end --------- */
+
+/* --------- students start --------- */
+
+.student_details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+}
+.student_details .students {
+  position: relative;
+  background: var(--background);
+  padding: 20px;
+  color:var(--text);
+}
+.student_details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.student_details table thead td {
+  font-weight: 600;
+}
+.student_details .students table tr {
+  border-bottom: 1px solid var(--primary-color);
+}
+.student_details .students table tbody tr:last-child {
+  border-bottom: none;
+}
+.student_details .students table tr td {
+  padding: 9px 5px;
+}
+.student_details .students table thead tr td:last-child,
+.student_details .students table tbody tr td:last-child {
+  text-align: center;
+}
+.student_details .students table thead tr td:nth-child(2),
+.student_details .students table tbody tr td:nth-child(2) {
+  text-align: left;
+}
+.student_details .students table thead tr td:nth-child(3),
+.student_details .students table tbody tr td:nth-child(3) {
+  text-align: left;
+}
+.student_details .students table thead tr td:nth-child(4),
+.student_details .students table tbody tr td:nth-child(4) {
+  text-align: center;
+}
+.student_details .students table tbody tr td:nth-child(5) .btn {
+  background-color: var(--main-color);
+  color: #fff;
+  transition: 0.2s ease-in;
+}
+.student_details .students table tbody tr td:nth-child(5) .btn:hover {
+  background-color: var(--present);
+}
+
+.student_details .add_student {
+  position: relative;
+  background: var(--background);
+  padding: 20px;
+  color: var(--text);
+}
+.student_details .add_student form {
+  position: relative;
+  padding: 20px;
+}
+.student_details .add_student form .form_control {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+.student_details .add_student form .form_control input {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.student_details .add_student form .form_control input:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.student_details .add_student form .form_control select {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.student_details .add_student form .form_control select:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.student_details .add_student form input.btn {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 8px;
+  background: var(--main-color);
+  color: #fff;
+}
+.student_details .add_student form .form_group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+.student_details .add_student form .teacher_pic {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+
+/* --------- students end --------- */
+
+/* --------- attendance start --------- */
+
+.attendance {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  color: var(--text);
+}
+.attendance input,
+.attendance select{
+  background: var(--background);
+}
+.attendance input[type='submit']{
+  background: var(--main-color);
+}
+.attendance h2{
+  padding: 10px 0;
+  font-weight: 700;
+}
+.attendance_nav{
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.attendance form.attendance_nav .form_control {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+.attendance form.attendance_nav .form_control input {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.attendance form.attendance_nav .form_control input:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.attendance form.attendance_nav .form_control select {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+}
+.attendance form.attendance_nav .form_control select:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+.attendance form.attendance_nav input.btn {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  margin: 25px 0 7px 0;
+  height: 40px;
+  background: var(--main-color);
+  color: #fff;
+}
+.attendance_area form{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.attendance_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  margin:15px;
+  border-radius: 12px;
+  background: var(--background);
+  box-shadow: 0px 2px 4px 0px var(--bl-outline);
+}
+.attendance_box img{
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.attendance_box h5{
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.attendance_box .radio_group {
+	position: relative;
+	padding: 4px;
+}
+.attendance_box .radio_group input {
+	width: 40px;
+	height: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+  text-align: center;
+	border-radius: 50%;
+	padding: 5px 13px;
+	background: var(--text-primary);
+	color: var(--background);
+	font-size: 16px;
+  font-weight: 600;
+	transition: all 100ms linear;
+}
+.attendance_box .radio_group input:checked{
+	color: #fff;
+  background: var(--present);
+	box-shadow: 0 1px 1px var(--bl-outline);
+}
+.attendance_box .radio_group input:nth-child(2):checked {
+  background: var(--absent);
+}
+.attendance_box .radio_group input:nth-child(3):checked {
+  background: var(--leave);
+}
+.attendance_box .radio_group input:before {
+	content: attr(label);
+	display: inline-block;
+  text-align: center;
+	width: 100%;
+}
+
+
+
+
+/* --------- login page start --------- */
+
+section.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+form.loginform {
+  position: relative;
+  padding: 30px;
+  background: #f2f3f7;
+  width: 450px;
+}
+section.login form.loginform h2{
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  padding-bottom: 10px;
+}
+section.login form.loginform .error-text{
+  display: none;
+  color: var(--absent);
+  padding: 4px 6px;
+  text-align: center;
+  border-radius: 4px;
+  background: #ffe3e5;
+  border: 1px solid #dfa5ab;
+  margin-bottom: 8px;
+}
+form.loginform .form_control {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+form.loginform .form_control input {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+  color: #333;
+  background: #f5f5f5;
+}
+form.loginform .form_control input:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+form.loginform input.btn {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 8px;
+  background: var(--main-color);
+}
+
+/* --------- login page end --------- */
+
+
+
+
+/* --------- track student details --------- */
+
+section.trackstd{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+section.trackstd form.trackform h2{
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  padding-bottom: 10px;
+}
+section.trackstd form.trackform {
+  position: relative;
+  padding: 30px;
+  background: #f5f5f5;
+  width: 450px;
+}
+section.trackstd form.trackform .form_control {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+section.trackstd form.trackform .form_control input {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 8px;
+  border: 1px solid var(--bl-outline);
+  border-radius: 5px;
+  outline: none;
+  background-color: #f5f5f5;
+  color: #333;
+}
+section.trackstd form.trackform .form_control input:focus {
+  border: 2px solid var(--bl-outline);
+  transition: 0.1s ease;
+}
+section.trackstd form.trackform input.btn {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 8px;
+  background: var(--main-color);
+}
+
+/* --------- track student details --------- */
+.trackstd{
+  position: relative;
+  padding: 40px;
+}
+.trackstd table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.trackstd table thead td {
+  font-weight: 600;
+}
+.trackstd table tr {
+  border-bottom: 1px solid #282828;
+}
+.trackstd table tbody tr:last-child {
+  border-bottom: none;
+}
+.trackstd table tbody tr:hover {
+  background: var(--primary-color);
+  color: #111;
+}
+.trackstd table tr td {
+  padding: 9px 5px;
+}
+
+
+/* theme switcher */
+
+
+.theme_switcher{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: var(--main-color);
+  border-radius: 6px;
+  position:fixed;
+  bottom:5%;
+  left: 0.4%;
+  overflow: hidden;
+}
+.sun{
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius:50%;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid var(--main-color);
+}
+.sun div{
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transition: width 0.5s;
+}
+.sun .line1{
+  width: 40px;
+  transform: translate(-50%,-50%);
+}
+.sun .line2{
+  width: 40px;
+  transform: translate(-50%,-50%) rotate(90deg);
+}
+.sun .line3{
+  width: 35px;
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+.sun .line4{
+  width: 35px;
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+.sun::after{
+  content: '';
+  width: 22px;
+  height: 22px;
+  background: var(--main-color);
+  border-radius:50%;
+  position: absolute;
+  top: -22px;
+  right: -22px;
+  transition: 0.5s;
+}
+.sun.night::after{
+  top: -8px;
+  right: -8px;
+}
+.sun.night div{
+  width: 0;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  body{
+    --main-color: #003147;
+    --primary-color:#03a9f4;
+    --background: #111;
+    --background-primary: #2c2c2c;
+    --text: #fff;
+    --text-primary: #bebebe;
+    --present: #068022;
+    --absent: #80061e;
+    --leave: #c8c816;
+    --bl-outline:rgba(0, 0, 0, 0.2);
+    --lg-outline:rgba(255, 255, 255, 0.2);
+  }
+} */
