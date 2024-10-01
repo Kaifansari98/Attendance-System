@@ -52,7 +52,8 @@ $sql3 = mysqli_query($conn, "SELECT * FROM students INNER JOIN student_attendanc
        <!-- navigation end -->
 
         <!-- cards  -->
-            <div class="cardBox">
+           <div class="togetherContainer">
+             <div class="cardBox">
                 <div class="card">
                     <div>
                         <div class="numbers"><?php echo $students_total; ?></div>
@@ -90,6 +91,45 @@ $sql3 = mysqli_query($conn, "SELECT * FROM students INNER JOIN student_attendanc
                     </div>
                 </div>
             </div>
+
+            
+                <div class="teachers">
+            <div class="card_header">
+                <h2>Teachers</h2>
+            </div>
+            
+            <table>
+                <tbody>
+                <?php 
+                        
+                        while($teachers = mysqli_fetch_assoc($sql2)){                        
+                        ?>
+                    <tr class="teacher-row">
+                        <td width='60px'>
+                            <div class="imgBx"><img src="img/profiles/<?php echo $teachers['teacher_pic']; ?>"></div>
+                        </td>
+                        <td class="content-row"><h4><?php echo $teachers['teacher_name']; ?> </h4> <span><?php echo $teachers['subject_specialist']; ?></span></td>
+                    </tr>
+                    <?php
+                    $sql6 = mysqli_query($conn, "SELECT `attend` FROM `teacher_attendance` WHERE `att_teacherUID` = {$teachers['teacher_uid']}");
+                    $total_teacher_progress = mysqli_num_rows($sql6); 
+
+                    $sql7 = mysqli_query($conn, "SELECT `attend` FROM `teacher_attendance` WHERE `att_teacherUID` = {$teachers['teacher_uid']} AND `attend` = 'present'");
+                    $teacher_progress = mysqli_num_rows($sql7);  
+
+                        if($teacher_progress != 0){
+                            $teacher_attrecord = floor($teacher_progress * 100) / $total_teacher_progress;        
+                        }
+                        else{
+                            $teacher_attrecord = 0;
+                        }
+                    $sql8 = mysqli_query($conn, "UPDATE teachers SET `teacher_attendance` = '{$teacher_attrecord}' WHERE `teacher_uid` = {$teachers['teacher_uid']}  ");
+                } ?>
+                </tbody>
+            </table>
+        </div>
+
+           </div>
         <!-- cards end -->
 
         <div class="fee_details">
@@ -143,7 +183,7 @@ $sql3 = mysqli_query($conn, "SELECT * FROM students INNER JOIN student_attendanc
                     </tbody>
                 </table>
             </div>
-        <div class="teachers">
+        <!-- <div class="teachers">
             <div class="card_header">
                 <h2>Teachers</h2>
             </div>
@@ -176,7 +216,7 @@ $sql3 = mysqli_query($conn, "SELECT * FROM students INNER JOIN student_attendanc
                 } ?>
                 </tbody>
             </table>
-        </div>
+        </div> -->
         </div>
         </div>
     </div>

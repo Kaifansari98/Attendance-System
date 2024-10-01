@@ -76,7 +76,9 @@ if(empty($adminemail)){
                 <div class="search">
                     <label for="">
                         <input type="text" placeholder="Search here">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <div class="icon-container">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
                     </label>
                 </div>
                 <div class="user">

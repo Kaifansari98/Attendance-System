@@ -16,8 +16,8 @@
   --lg-outline:rgba(255, 255, 255, 0.2);
 }
 body.dark-theme {
-    --background: #111;
-    --background-primary: #2c2c2c;
+    --background: #2c2c2c;
+    --background-primary: #111;
     --text: #fff;
     --text-primary: #bebebe;
 }
@@ -162,36 +162,42 @@ select{
 
 .search {
   position: relative;
-  width: 400px;
+  width: 500px;
   margin: 0 10px;
+  border-radius: 50px;
+  overflow: hidden;
+  
 }
 .search label {
   position: relative;
   width: 100%;
+  display: flex;
 }
 .search label input {
   width: 100%;
   height: 40px;
-  border-radius: 40px;
+  /* border-radius: 40px; */
   padding: 5px 20px;
-  padding-left: 35px;
+  /* padding-left: 35px; */
   outline: none;
   background: var(--background-primary);
   color:var(--text-primary);
   border: 1px solid var(--bl-outline);
 }
-.search label .fa {
-  position: absolute;
-  left: 15px;
-  top: 4px;
+.search label .icon-container {
+  /* position: absolute; */
   color: var(--text-primary);
-  margin-right: 10px;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0px 20px;
+   border-left: 1px solid var(--background-primary);
 }
 .user {
   position: relative;
-  min-width: 50px;
-  width: 50px;
-  height: 50px;
+  height: 40px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
@@ -207,21 +213,32 @@ select{
 
 /* Attendance Boxes */
 
+.togetherContainer{
+  height: fit-content ;
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
 .cardBox {
   position: relative;
-  width: 100%;
-  padding: 20px;
+  width: 50%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+  
 }
 .cardBox .card {
   position: relative;
   background: var(--background);
   padding: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  border-radius: 10px;
 }
 .cardBox .card .numbers {
   position: relative;
@@ -243,9 +260,6 @@ select{
   position: relative;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 20px;
   color: var(--text);
 }
 .fee_details .recent_fees {
@@ -253,14 +267,18 @@ select{
   /* min-height: 530px; */
   background: var(--background);
   padding: 20px;
+  border-radius: 10px;
 }
 .card_header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  color: var(--text);
 }
 .card_header h2 {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 15px;
 }
 a.btn {
   position: relative;
@@ -340,22 +358,49 @@ a.btn {
   background-color: var(--leave)
   ;
 }
-.fee_details .teachers {
+ .togetherContainer .teachers {
   position: relative;
+  width: 50%;
   background: var(--background);
   padding: 20px;
+  border-radius: 10px;
+}
+
+.togetherContainer table{
+  width: 100%;
+}
+
+.togetherContainer table .teacher-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.togetherContainer .content-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 60px);
+}
+
+.togetherContainer tbody{
+  width: 100%;
+}
+
+.teacher-row{
+  width: 100%;
 }
 
 /* right side */
 
-.fee_details .teachers .imgBx {
+.teachers .imgBx {
   position: relative;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
 }
-.fee_details .teachers .imgBx img {
+ .teachers .imgBx img {
   position: absolute;
   top: 0;
   left: 0;
@@ -363,19 +408,19 @@ a.btn {
   height: 100%;
   object-fit: cover;
 }
-.fee_details .teachers table tr td h4 span {
+.teachers table tr td span {
   font-size: 16px;
   color: var(--text-primary);
 }
-.fee_details .teachers table tr:hover,
-.fee_details .teachers table tr:hover td h4 span {
+ .teachers table tr:hover,
+.teachers table tr:hover td span {
   background: var(--primary-color);
   color: var(--background);
 }
-.fee_details .teachers table tr td {
+ .teachers table tr td {
   padding: 7px 10px;
 }
-.fee_details .teachers table tr td h4 {
+.teachers table tr td h4 {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.2em;
